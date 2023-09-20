@@ -1,0 +1,96 @@
+body{
+    font-size: 14px;
+    background-color: #000;
+}
+
+.main{
+width: 100%;
+height: 100%;
+}
+.maincontent{
+background-color:#0394e9f3 ;
+padding: 12px;
+margin:auto;
+min-width: 600px;
+}
+  .maincontent .maintitle{
+    background-color: #3b332fec;
+    margin:auto;
+    width: 100%;
+    min-width: 600px;
+    text-align: center;
+    padding: 20px;
+  }
+  .maintitle h2{
+    color: #ffffff9c;
+    margin:o0;
+    line-height: 40px;
+  }
+  .bloctables{
+    background-color: #0394e9f3 ;
+  }
+  .card{
+    --bs-card-bg:#fff;
+    min-width: 700px;
+    border:none;
+    width: 70%;
+    position: relative;
+    margin:7% auto;
+    padding-bottom: 20px;
+  }
+  .nav{
+    --bs-nav-link-hover-color:#885305d7;
+    --bs-nav-link-color:#2e1d03d7;
+  }
+  .nav-pills{
+  
+    display:table !important;
+    width:100%;
+    cursor: default;
+  }
+  .nav-pills .nav-link.active{
+    background-color: #677c07c9;
+  }
+  .nav-pills .nav-link {
+      border-radius: 0px;
+          border-bottom: 1px solid #e08906;
+  }
+  .nav-item{
+        display: table-cell;
+         background: #e5dca6fa;
+  }
+  .form{
+    padding: 10px;
+   min-height: 300px;
+   height: 100%;
+  }
+  thead th{
+    color: #01180e;
+    background-color: #105a3969;
+  }
+
+  thead tr{
+    background-color:  #ffffff9c;
+  }
+
+  .btn{
+    margin: 5px;
+  }
+  .verif{
+    width: 300px;
+  }
+  .salaire{
+    width: 400px;
+  }
+  .modal-header{
+    background-color:#157979e5;
+    color: #fff;
+  }
+  .modal-body input{
+    border-radius: 5px;
+    margin: 0 auto 12px 5px;
+    width: 80%;
+  }
+  form input:focus{
+    box-shadow: none;
+  }

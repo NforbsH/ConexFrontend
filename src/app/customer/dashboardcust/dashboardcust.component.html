@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Catalog</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Left sidebar with categories -->
+                <div class="sidebar">
+                    <h3>Categories</h3>
+                    <ul class="category-list">
+                        <li>
+                            <a href="#">Iron</a>
+                            <ul class="sub-category">
+                                <li><a href="#">Blocks</a></li>
+                                <li><a href="#">Spades</a></li>
+                                <li><a href="#">Nails</a></li>
+                                <li><a href="#">Iron Rods</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Lighting</a>
+                        </li>
+                        <li>
+                            <a href="#">Painting</a>
+                        </li>
+                        <li>
+                            <a href="#">Building Equipment</a>
+                            <ul class="sub-category">
+                                <li><a href="#">Wires</a></li>
+                                <li><a href="#">Cables</a></li>
+                                <li><a href="#">Aluminium</a></li>
+                                <li><a href="#">Wood Work</a></li>
+                                <li><a href="#">Toiletries</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Product display area -->
+                <div class="product-container">
+                    <!-- Sample product -->
+                    <div class="product">
+                        <img src="product1.jpg" alt="Product 1">
+                        <h4>Product 1</h4>
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Price: $19.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Repeat this structure for more products -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart icon in the taskbar -->
+    <div class="cart-icon">
+        <a href="#">
+            <img src="cart-icon.png" alt="Cart">
+            <span class="cart-count">0</span>
+        </a>
+    </div>
+
+    <!-- JavaScript (for adding products to the cart and updating cart count) -->
+    <script src="script.js"></script>
+</body>
+</html>

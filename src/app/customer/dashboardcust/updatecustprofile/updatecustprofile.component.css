@@ -1,0 +1,75 @@
+/* Edit Profile Styles */
+.edit-profile {
+    background-color: #ee9d24;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    position: relative;
+    margin: auto;
+}
+
+.edit-profile h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.profile-picture {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 60%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.camera-icon {
+    position: center;
+    bottom: 1;
+    right: 0;
+    background-color: #eeeff0;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.camera-icon:hover {
+    background-color: #555;
+}
+
+form .form-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="password"] {
+    width: 30%;
+    height: 40%;
+    padding: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.
+};
