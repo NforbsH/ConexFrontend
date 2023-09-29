@@ -1,0 +1,30 @@
+body {
+      padding-top: 60px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: rgb(121, 119, 119);
+    }
+
+    .navbar-brand {
+      padding: 5px;
+    }
+
+    .back-button {
+      margin-top: 10px;
+    }
+
+  .logo{
+    width: 20px;
+    height: 20px;
+  }
+
+    #map {
+      height: 400px;
+      width: 100%;
+}

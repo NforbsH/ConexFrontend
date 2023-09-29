@@ -1,0 +1,11 @@
+
+.invoice {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    position: relative;
+  }
+  
+  .invoice-title {
+    margin-top: 0;
+  }
+  

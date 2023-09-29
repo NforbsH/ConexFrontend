@@ -1,267 +1,262 @@
+<div class="maincontent">
+  <div class="maintitle">
+      <h2><b>INVOICE</b></h2>
+  </div>
+      <div class="card">
 
-    <div class="maincontent">
-        <div class="maintitle">
-            <h2><b>INVOICE</b></h2>
-        </div>
-        <div class="bloctables">
-            <div class="card">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item text-center">
+                <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Automatic Payment</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Manual Payment</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-proile" role="tab" aria-controls="pills-profile" aria-selected="false">Suspended Payment</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-pl" role="tab" aria-controls="pills-profile" aria-selected="false">Bills Paid</a>
+              </li>
+             
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
 
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item text-center">
-                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Automatic Payment</a>
-                    </li>
-                    <li class="nav-item text-center">
-                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Manual Payment</a>
-                    </li>
-                    <li class="nav-item text-center">
-                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-proile" role="tab" aria-controls="pills-profile" aria-selected="false">Suspended Payment</a>
-                    </li>
-                    <li class="nav-item text-center">
-                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-pl" role="tab" aria-controls="pills-profile" aria-selected="false">Bills Paid</a>
-                    </li>
-                   
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="form px-4 pt-5">
 
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="form px-4 pt-5">
+                      <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                  <th scope="col">No</th>
+                                  <th scope="col">Invoice number</th>
+                                  <th scope="col">Reception Date</th>
+                                  <th scope="col">Payment Deadlines</th>
+                                  <th scope="col">Amount</th>
+                                  <th scope="col">Actions</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                  <th scope="row">1</th>
+                                  <td>NFORBS</td>
+                                  <td>02-08-2023</td>
+                                  <td>04-08-2023</td>
+                                  <td>192.000XAF</td>
+                                  <td>
+                                      <!-- Button trigger modal 1-->
+                                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      <i class="bi bi-trash-fill"></i>
+                                      </button>
+                                      
+                                      <!-- Modal 1-->
+                                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog verif">
+                                          <div class="modal-content ">
+                                              <div class="modal-body">
+                                                  <p>Are you sure you want to suspend this invoice?</p>
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                              <button type="button" class="btn btn-success"data-bs-dismiss="modal">Yes</button>
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <!-- Button trigger modal 2-->
+                                      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModa"><i class="bi bi-pencil-square"></i>
+                                      </button>
+                                      <!-- Modal 2-->
+                                      <div class="modal fade" id="exampleModa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog salaire">
+                                          <div class="modal-content">
+                                              <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Receipt Modification</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                  <form action="">
+                                                      <input type="text" placeholder="Receipt name" class="form-control" required><br>
+                                                      <input type="date" placeholder="Reception Date" class="form-control" required><br>
+                                                      <input type="date" placeholder="Payment Deadlines" class="form-control" required><br>
+                                                      <input type="number" formControlName="Entire" placeholder="Amount" class="form-control" required><br>
+                                                      <button type="submit" class="btn btn-success">Confirm</button>
+                                                  </form>
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
 
-                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Invoice number</th>
-                                        <th scope="col">Reception Date</th>
-                                        <th scope="col">Payment Deadlines</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>NFORBS</td>
-                                        <td>02-08-2023</td>
-                                        <td>04-08-2023</td>
-                                        <td>192.000XAF</td>
-                                        <td>
-                                            <!-- Button trigger modal 1-->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="bi bi-trash-fill"></i>
-                                            </button>
-                                            
-                                            <!-- Modal 1-->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog verif">
-                                                <div class="modal-content ">
-                                                    <div class="modal-body">
-                                                        <p>Are you sure you want to suspend this invoice?</p>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Yes</button>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Button trigger modal 2-->
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModa"><i class="bi bi-pencil-square"></i>
-                                            </button>
-                                            <!-- Modal 2-->
-                                            <div class="modal fade" id="exampleModa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog salaire">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Receipt Modification</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="">
-                                                            <input type="text" placeholder="Receipt name" class="form-control" required><br>
-                                                            <input type="date" placeholder="Reception Date" class="form-control" required><br>
-                                                            <input type="date" placeholder="Payment Deadlines" class="form-control" required><br>
-                                                            <input type="number" formControlName="Entire" placeholder="Amount" class="form-control" required><br>
-                                                            <button type="submit" class="btn btn-success">Confirm</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        </tr>
 
+                                      
+                                  <!-- <tr>
+                                  <th scope="row">3</th>
+                                  <td colspan="2">Larry the Bird</td>
+                                  <td>@twitter</td>
+                                  </tr> -->
+                              </tbody>
+                              </table>
+                      </table>
+
+                  </div>
+              </div>
+
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div class="form px-4 pt-5">
+
+                      <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                      <th scope="col">No</th>
+                                      <th scope="col">Receipt Title</th>
+                                      <th scope="col">Reception Date</th>
+                                      <th scope="col">Payment Delays</th>
+                                      <th scope="col">Payment date</th>
+                                      <th scope="col">Amount</th>
+                                      <th scope="col">Actions</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                  <th scope="row">1</th>
+                                  <td>Building iron rods</td>
+                                  <td>12-02-23</td>
+                                  <td>4 days</td>
+                                  <td>18-02-23</td>
+                                  <td>75.925XAF</td>
+                                  <td>
+                                      <!-- Button trigger modal 1-->
+                                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exleModal">
+                                      <i class="bi bi-trash-fill"></i>
+                                      </button>
+                                      
+                                      <!-- Modal 1-->
+                                      <div class="modal fade" id="exleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog verif">
+                                          <div class="modal-content ">
+                                              <div class="modal-body">
+                                                  <p>Are you sure you want to suspend this invoice?</p>
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                              <button type="button" class="btn btn-success"data-bs-dismiss="modal">Yes</button>
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <!-- Button trigger modal 2-->
+                                      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#examp"><i class="bi bi-pencil-square"></i>
+                                      </button>
+                                      <!-- Modal 2-->
+                                      <div class="modal fade" id="examp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog salaire">
+                                          <div class="modal-content">
+                                              <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Receipt Update</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                  <form action="">
+                                                      <input type="text" placeholder="Receipt Title" class="form-control" required><br>
+                                                      <input type="date" placeholder="Reception date" class="form-control" required><br>
+                                                      <input type="date" placeholder="Payment delays" class="form-control" required><br>
+                                                      <input type="number" formControlName="Entire" placeholder="Montant" class="form-control" required><br>
+                                                      <input type="checkbox">
+                                                      <button type="submit" class="btn btn-success">Confirm</button>
+                                                  </form>
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+
+
+                                      
+                                  <!-- <tr>
+                                  <th scope="row">3</th>
+                                  <td colspan="2">Larry the Bird</td>
+                                  <td>@twitter</td>
+                                  </tr> -->
+                              </tbody>
+                              </table>
+                      </table>
+
+                  </div>
+              </div>
+
+              <div class="tab-pane fade" id="pills-proile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div class="form px-4 pt-5">
+
+                      <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                      <th scope="col">No</th>
+                                      <th scope="col">Receipt Title</th>
+                                      <th scope="col">Reception Date</th>
+                                      <th scope="col">Payment Delay</th>
+                                      <th scope="col">Amount</th>
+                                      
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                  <th scope="row">1</th>
+                                  <td>Maintenance</td>
+                                  <td>23-11-2023</td>
+                                  <td>11 Days</td>
+                                  <td>145.000XAF</td>
+
+                                  </tr>
+                                  <!-- <tr>
+                                  <th scope="row">3</th>
+                                  <td colspan="2">Larry the Bird</td>
+                                  <td>@twitter</td>
+                                  </tr> -->
+                              </tbody>
+                              </table>
+                      </table>
+
+                  </div>
+              </div>
+
+              <div class="tab-pane fade" id="pills-pl" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div class="form px-4 pt-5">
   
-                                            
-                                        <!-- <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr> -->
-                                    </tbody>
-                                    </table>
-                            </table>
-
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="form px-4 pt-5">
-
-                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Receipt Title</th>
-                                            <th scope="col">Reception Date</th>
-                                            <th scope="col">Payment Delays</th>
-                                            <th scope="col">Payment date</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>Building iron rods</td>
-                                        <td>12-02-23</td>
-                                        <td>4 days</td>
-                                        <td>18-02-23</td>
-                                        <td>75.925XAF</td>
-                                        <td>
-                                            <!-- Button trigger modal 1-->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exleModal">
-                                            <i class="bi bi-trash-fill"></i>
-                                            </button>
-                                            
-                                            <!-- Modal 1-->
-                                            <div class="modal fade" id="exleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog verif">
-                                                <div class="modal-content ">
-                                                    <div class="modal-body">
-                                                        <p>Are you sure you want to suspend this invoice?</p>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Yes</button>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Button trigger modal 2-->
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#examp"><i class="bi bi-pencil-square"></i>
-                                            </button>
-                                            <!-- Modal 2-->
-                                            <div class="modal fade" id="examp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog salaire">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Receipt Update</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="">
-                                                            <input type="text" placeholder="Receipt Title" class="form-control" required><br>
-                                                            <input type="date" placeholder="Reception date" class="form-control" required><br>
-                                                            <input type="date" placeholder="Payment delays" class="form-control" required><br>
-                                                            <input type="number" formControlName="Entire" placeholder="Montant" class="form-control" required><br>
-                                                            <input type="checkbox">
-                                                            <button type="submit" class="btn btn-success">Confirm</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        </tr>
-
-  
-                                            
-                                        <!-- <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr> -->
-                                    </tbody>
-                                    </table>
-                            </table>
-
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="pills-proile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="form px-4 pt-5">
-
-                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Receipt Title</th>
-                                            <th scope="col">Reception Date</th>
-                                            <th scope="col">Payment Delay</th>
-                                            <th scope="col">Amount</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>Maintenance</td>
-                                        <td>23-11-2023</td>
-                                        <td>11 Days</td>
-                                        <td>145.000XAF</td>
-    
-                                        </tr>
-                                        <!-- <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr> -->
-                                    </tbody>
-                                    </table>
-                            </table>
-
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="pills-pl" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="form px-4 pt-5">
+                      <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                  <th scope="col">No</th>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Surname</th>
+                                  <th scope="col">Reason</th>
+                                  <th scope="col">Amount</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                  <th scope="row">1</th>
+                                  <td>NGAFOR</td>
+                                  <td>HENRY</td>
+                                  <td>Account Maintenance</td>
+                                  <td>56.800XAF</td>
+                                  </tr>
+                                  <!-- <tr>
+                                  <th scope="row">3</th>
+                                  <td colspan="2">Larry the Bird</td>
+                                  <td>@twitter</td>
+                                  </tr> -->
+                              </tbody>
+                          </table>
+                      </table>
+                      
+                  </div>
+              </div>
+          
+          </div>
         
-                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Surname</th>
-                                        <th scope="col">Reason</th>
-                                        <th scope="col">Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>NGAFOR</td>
-                                        <td>HENRY</td>
-                                        <td>Account Maintenance</td>
-                                        <td>56.800XAF</td>
-                                        </tr>
-                                        <!-- <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr> -->
-                                    </tbody>
-                                </table>
-                            </table>
-                            
-                        </div>
-                    </div>
-                
-                </div>
-              
-            </div>
-        </div>
-    </div>
-
-
+      </div>
+  </div>

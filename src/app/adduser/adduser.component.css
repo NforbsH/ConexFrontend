@@ -1,0 +1,10 @@
+
+.profile .profile-edit label {
+    font-weight: 600;
+    color: rgba(1, 41, 112, 0.6);
+  }
+  
+  .profile .profile-edit img {
+    max-width: 120px;
+  }
+  

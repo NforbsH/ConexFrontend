@@ -13,8 +13,16 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { AboutComponent } from './page/about/about.component';
 import { ActivityComponent } from './page/activity/activity.component';
 import { ProjectsComponent } from './page/projects/projects.component';
-import { InnerpageComponent } from './page/innerpage/innerpage.component';
 import { CustomertableComponent } from './customertable/customertable.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { DeliveryagentDashboardComponent } from './deliveryagent-dashboard/deliveryagent-dashboard.component';
+import { CustomerserviceDashboardComponent } from './customerservice-dashboard/customerservice-dashboard.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { MapComponent } from './map/map.component';
+import { MessagingComponent } from './messaging/messaging.component';
+import { InvoicePrintComponent } from './invoice-print/invoice-print.component';
+import { EditproductComponent } from './editproduct/editproduct.component';
+import { AdduserComponent } from './adduser/adduser.component';
 
 const routes: Routes = [  
   {
@@ -35,9 +43,12 @@ const routes: Routes = [
 
   },
 
+  { path: 'dashboardcust',component:DashboardcustComponent, 
+  },
+
   {
-    path: 'dashboardcust',
-    component:DashboardcustComponent 
+    path: 'homepage',
+    component:HomepageComponent
 
   },
 
@@ -48,8 +59,55 @@ const routes: Routes = [
 
 
   {
-    path: 'dashboard-admin',
-    component:DashboardAdminComponent
+    path: '',
+    component:DashboardAdminComponent, children:[
+    
+  {
+    path: 'addproduct',
+    component:AddproductComponent
+
+  },
+
+  {
+    path: 'editproduct',
+    component:EditproductComponent
+
+  },
+    
+  {
+    path: 'profile',
+    component:ProfileComponent
+
+  },
+
+  {
+    path: 'invoice',
+    component:InvoiceComponent
+
+  },
+
+
+  {
+    path: 'adduser',
+    component:AdduserComponent
+
+  },
+
+  {
+    path: 'invoice-print',
+    component:InvoicePrintComponent
+
+  },
+  
+
+    ]
+
+  },
+
+    
+  {
+    path: 'customertable',
+    component:CustomertableComponent
 
   },
 
@@ -60,20 +118,20 @@ const routes: Routes = [
   },
 
   {
+    path: 'messaging',
+    component:MessagingComponent
+
+  },
+
+  {
+    path: 'map',
+    component:MapComponent
+
+  },
+
+  {
     path: 'activity',
     component:ActivityComponent
-
-  },
-
-  {
-    path: 'customertable',
-    component:CustomertableComponent
-
-  },
-
-  {
-    path: 'innerpage',
-    component:InnerpageComponent
 
   },
 
@@ -83,23 +141,13 @@ const routes: Routes = [
 
   },
 
+
   {
-    path: 'updatecustprofile',
-    component:UpdatecustprofileComponent
+    path: 'customerservice-dashboard',
+    component:CustomerserviceDashboardComponent
 
   },
 
-  {
-    path: 'invoice',
-    component:InvoiceComponent
-
-  },
-  
-  {
-    path: 'profile',
-    component:ProfileComponent
-
-  }
 ];
 
 @NgModule({

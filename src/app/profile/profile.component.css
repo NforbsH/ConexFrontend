@@ -6,6 +6,9 @@
   background-color: #3f619c
 }
 
+.head {
+  background-color: #0394e9f3;
+}
 
 .main {
   width: 85%;
@@ -14,7 +17,7 @@
 }
 
 .card {
-  background-color: rgb(159, 206, 190);
+  background-color: rgb(212, 228, 222);
 }
 
 .profile .profile-card img {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -11,10 +11,18 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  baseUrl = "http://localhost:3000/"
+  baseUrl = "http://localhost:3000"
 
-  login(email:any, password:any){
-      return this.http.post<any>(this.baseUrl+"login",[email,password]).pipe();
+  login(data:any){
+    const optionHeader = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        //'Access-Control-Allow-Origin': '*'
+      })
+    };
+      return this.http.post<any>(this.baseUrl+"/api/v1/customer/login",data,optionHeader);
    }
 
    register(email:any, password:any){

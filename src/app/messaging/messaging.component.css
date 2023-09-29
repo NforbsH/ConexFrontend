@@ -1,0 +1,38 @@
+body {
+    padding-top: 60px;
+  }
+  
+  .inbox-list {
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 500px;
+    overflow-y: scroll;
+  }
+  
+  .message-container {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .message-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .message-body {
+    padding: 15px;
+  }
+  
+  .message-footer {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    text-align: right;
+  }
+  
+  .message-footer p {
+    margin-bottom: 0;
+  }

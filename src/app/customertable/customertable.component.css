@@ -44,15 +44,6 @@
   color: rgba(1, 41, 112, 0.6);
 }
 
-.profile .profile-edit label {
-  font-weight: 600;
-  color: rgba(1, 41, 112, 0.6);
-}
-
-.profile .profile-edit img {
-  max-width: 120px;
-}
-
 /* Bordered Tabs */
 .nav-tabs-bordered {
     border-bottom: 2px solid #ebeef4;
@@ -75,3 +66,6 @@
     border-bottom: 2px solid #4154f1;
   }
 
+.card {
+  background-color:rgb(127, 140, 255);
+}

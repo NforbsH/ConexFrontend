@@ -18,10 +18,19 @@ import { AboutComponent } from './page/about/about.component';
 import { ProjectsComponent } from './page/projects/projects.component';
 import { ActivityComponent } from './page/activity/activity.component';
 import { FooterpageComponent } from './page/footerpage/footerpage.component';
-import { InnerpageComponent } from './page/innerpage/innerpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomertableComponent } from './customertable/customertable.component';
 import { RecentActivityComponent } from './customertable/recent-activity/recent-activity.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { EditproductComponent } from './editproduct/editproduct.component';
+import { DeliveryagentDashboardComponent } from './deliveryagent-dashboard/deliveryagent-dashboard.component';
+import { CustomerserviceDashboardComponent } from './customerservice-dashboard/customerservice-dashboard.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { MapComponent } from './map/map.component';
+import { MessagingComponent } from './messaging/messaging.component';
+import { InvoicePrintComponent } from './invoice-print/invoice-print.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +48,18 @@ import { RecentActivityComponent } from './customertable/recent-activity/recent-
     ProjectsComponent,
     ActivityComponent,
     FooterpageComponent,
-    InnerpageComponent,
     CustomertableComponent,
-    RecentActivityComponent
+    RecentActivityComponent,
+    AddproductComponent,
+    EditproductComponent,
+    DeliveryagentDashboardComponent,
+    CustomerserviceDashboardComponent,
+    HomepageComponent,
+    MapComponent,
+    MessagingComponent,
+    InvoicePrintComponent,
+    AdduserComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
