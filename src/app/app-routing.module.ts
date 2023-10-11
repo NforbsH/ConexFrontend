@@ -23,6 +23,7 @@ import { MessagingComponent } from './messaging/messaging.component';
 import { InvoicePrintComponent } from './invoice-print/invoice-print.component';
 import { EditproductComponent } from './editproduct/editproduct.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [  
   {
@@ -93,6 +94,7 @@ const routes: Routes = [
 
   },
 
+
   {
     path: 'invoice-print',
     component:InvoicePrintComponent
@@ -126,6 +128,13 @@ const routes: Routes = [
   {
     path: 'map',
     component:MapComponent
+
+  },
+
+
+  {
+    path: 'cart',
+    component:CartComponent
 
   },
 

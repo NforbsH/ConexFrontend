@@ -19,11 +19,6 @@ body {
       margin-top: 10px;
     }
 
-  .logo{
-    width: 20px;
-    height: 20px;
-  }
-
     #map {
       height: 400px;
       width: 100%;

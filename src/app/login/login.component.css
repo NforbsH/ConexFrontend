@@ -1,7 +1,17 @@
 .container {
     background-color: rgb(201, 202, 207);
+    border-radius: 20px;
 }
 
 .card-body {
     background-color:  rgb(152, 162, 248);
+    border-radius: 30px;
+    height: 450px;
+    width: 400px;
+}
+
+h2{
+    font-family: "ALGERIAN", sans-serif;
+    font-size: 40px;
+    color: rgb(27, 5, 5);
 }

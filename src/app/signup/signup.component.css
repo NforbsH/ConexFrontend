@@ -9,6 +9,7 @@ body {
   .signup-form {
     max-width: 900px;
     width: 500px;
+    height: 650px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -20,7 +21,16 @@ body {
     margin-bottom: 20px;
   }
   
+  .signup-form h1 {
+  font-family: "ALGERIAN", sans-serif;
+  font-size: 40px;
+  color: rgb(27, 5, 5);
+  /* margin-left: 100px; */
+  text-align: center;
+  ;
+}
+
   .signup-form button {
     width: 30%;
+    margin-left: 250px;
   }
-  

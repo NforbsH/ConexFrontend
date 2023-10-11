@@ -8,4 +8,12 @@
   .invoice-title {
     margin-top: 0;
   }
+
+  .col6{
+    size: 25px;
+  }
+
+  .invoice{
+    background-color: rgb(185, 240, 240);
+  }
   
