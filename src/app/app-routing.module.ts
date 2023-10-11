@@ -25,7 +25,7 @@ import { EditproductComponent } from './editproduct/editproduct.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { CartComponent } from './cart/cart.component';
 
-const routes: Routes = [  
+const routes: Routes = [
   {
     path: ' ',
     redirectTo: 'home',
@@ -40,11 +40,11 @@ const routes: Routes = [
 
   {
     path: 'signup',
-    component:SignUpComponent 
+    component:SignUpComponent
 
   },
 
-  { path: 'dashboardcust',component:DashboardcustComponent, 
+  { path: 'dashboardcust',component:DashboardcustComponent,
   },
 
   {
@@ -62,7 +62,7 @@ const routes: Routes = [
   {
     path: '',
     component:DashboardAdminComponent, children:[
-    
+
   {
     path: 'addproduct',
     component:AddproductComponent
@@ -74,7 +74,7 @@ const routes: Routes = [
     component:EditproductComponent
 
   },
-    
+
   {
     path: 'profile',
     component:ProfileComponent
@@ -100,13 +100,13 @@ const routes: Routes = [
     component:InvoicePrintComponent
 
   },
-  
+
 
     ]
 
   },
 
-    
+
   {
     path: 'customertable',
     component:CustomertableComponent
