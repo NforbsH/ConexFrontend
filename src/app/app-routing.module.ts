@@ -54,13 +54,27 @@ const routes: Routes = [
   },
 
   {
-    path: 'page',
-    component:PageComponent
+    path: '',
+    component:PageComponent, children:[
+
+      {
+        path: 'activity',
+        component:ActivityComponent
+    
+      },
+    
+      {
+        path: 'about',
+        component:AboutComponent
+    
+      },
+
+    ]
   },
 
 
   {
-    path: '',
+    path: 'DashboardAdmin',
     component:DashboardAdminComponent, children:[
 
   {
@@ -114,12 +128,6 @@ const routes: Routes = [
   },
 
   {
-    path: 'about',
-    component:AboutComponent
-
-  },
-
-  {
     path: 'messaging',
     component:MessagingComponent
 
@@ -135,12 +143,6 @@ const routes: Routes = [
   {
     path: 'cart',
     component:CartComponent
-
-  },
-
-  {
-    path: 'activity',
-    component:ActivityComponent
 
   },
 

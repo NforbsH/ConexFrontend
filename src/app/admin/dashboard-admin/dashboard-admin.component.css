@@ -257,32 +257,30 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.logo {
-  line-height: 1;
-}
-
-@media (min-width: 1300px) {
+--------------------------------------------------------------*/
   .logo {
-    width: 200px;
+    line-height: 1;
   }
-}
-
-.logo img {
-  max-height: 100px;
-  margin-right: -110px;
-  margin-bottom: 5px;
-  margin-top: -35px;
-  width: 120px;
-}
-
-.logo span {
-  font-size: 40px;
-  font-weight: 700;
-  color: #05265e;
-  margin-bottom: 13px;
-  font-family: "ALGERIAN", sans-serif;
-}
-
+  
+  @media (min-width: 1200px) {
+    .logo {
+      width: 280px;
+    }
+  }
+  
+  .logo img {
+    max-height: 55px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+  }
+  
+  .logo span {
+    font-size: 26px;
+    font-weight: 700;
+    color: #012970;
+    font-family: "Nunito", sans-serif;
+  }
+  
 .header {
   transition: all 0.5s;
   /* z-index: 997; */

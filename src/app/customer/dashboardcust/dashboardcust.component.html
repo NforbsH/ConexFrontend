@@ -135,14 +135,25 @@
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/">
+              <i class="bi bi-circle"></i><span>View Orders</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
               <i class="bi bi-circle"></i><span>Make a Reservation</span>
             </a>
           </li>
           <li>
             <a href="/">
-              <i class="bi bi-circle"></i><span>View Reservations</span>
+              <i class="bi bi-circle"></i><span>Reservations</span>
             </a>
           </li>
+          <li>
+            <a href="/">
+              <i class="bi bi-circle"></i><span>Invoices</span>
+            </a>
+          </li>
+          
           
         </ul>
       </li><!-- End Components Nav -->
@@ -163,7 +174,7 @@
 
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" routerLink="/login">
           <i class="bi bi-person"></i>
           <span>Sign out</span>
         </a>
@@ -179,7 +190,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/page">Home</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
