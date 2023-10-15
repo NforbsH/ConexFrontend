@@ -261,26 +261,26 @@ h6 {
   .logo {
     line-height: 1;
   }
-  
+
   @media (min-width: 1200px) {
     .logo {
       width: 280px;
     }
   }
-  
+
   .logo img {
     max-height: 55px;
     margin-right: 6px;
     margin-bottom: 20px;
   }
-  
+
   .logo span {
     font-size: 26px;
     font-weight: 700;
     color: #012970;
     font-family: "Nunito", sans-serif;
   }
-  
+
 .header {
   transition: all 0.5s;
   /* z-index: 997; */
@@ -690,3 +690,4 @@ h6 {
     transform: rotate(360deg);
   }
 }
+

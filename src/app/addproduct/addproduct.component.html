@@ -1,125 +1,187 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>Add Product
-                    <!-- <a class="btn btn-primary btn-sm text-white float-end">Back</a> -->
-
-                </h4>
-
-            </div>
-            <div class="card-body">
-                    <ul class="nav nav-tabs p-3" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                                Home
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">
-                                Details
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="productImage-tab" data-bs-toggle="tab" data-bs-target="#productImage-tab-pane" type="button" role="tab" aria-controls="productImage-tab-pane" aria-selected="false">
-                                Product Images
-                            </button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade p-3 show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                                <div class="mb-3">
-                                    <label>Select Category</label>
-                                    <select name="category_id" class="form-control">
-                                        @foreach ($categories as $category)
-
-                                        <option value="category"></option>   
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label>Product name</label>
-                                    <input type="text" name="name" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <label>Description</label>
-                                    <textarea name="description" class="form-control" rows="4"></textarea>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane fade p-3" id="seotag-tab-pane" role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
-                                <div class="mb-3">
-                                    <label>Meta Title</label>
-                                    <input type="text" name="meta_title" class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label>Meta description</label>
-                                    <textarea name="meta_description" class="form-control"  rows="4"></textarea>
-                                </div> 
-                                <div class="mb-3">
-                                    <label>Meta Keyword</label>
-                                    <textarea name="meta_keyword" class="form-control"  rows="4"></textarea>
-                                </div> 
-
-                            </div>
-                            <div class="tab-pane fade p-3" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label>Original Price</label>
-                                            <input type="text" name="original_price" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label>Selling Price</label>
-                                            <input type="text" name="selling_price" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-
-                                        <div class="mb-3">
-                                            <label>Quantity</label>
-                                            <input type="number" name="quantity" class="form-control">
-                                        </div>
-                                        
-                                    </div>  
-
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label>Trending</label>
-                                            <input type="checkbox" name="trending" style="width: 40px; height: 40px;">
-                                        </div>
-                                    </div> 
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label>status</label>
-                                            <input type="checkbox" name="status" style="width: 40px; height: 40px;">
-                                        </div>
-                                    </div>
-
-                                        
-
-                                </div>
-                            </div>
-                            <div class="tab-pane fade p-3" id="productImage-tab-pane" role="tabpanel" aria-labelledby="productImage-tab" tabindex="0">
-
-                                <div class="mb-3">
-                                    <label>Upload product Images</label>
-                                    <input type="file" name="image[]" multiple class="form-control">
-                                </div>
-                            </div>   
-                            
-                            
-                    
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
-                <!-- </form> -->
-            </div>
-        </div>
+<div class="row align-items-center">
+  <div class="table-responsive px-3">
+    <div class="d-flex justify-content-end mb-3">
+      <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-primary" data-bs-target="#addProductModal" data-bs-toggle="modal">
+          <i class="bx bx-plus me-1"></i> Add New Products
+        </a>
+      </div>
     </div>
+    <table class="table table-striped align-middle table-nowrap">
+
+      <tbody>
+      <tr>
+        <td>
+          <div class="avatar-lg me-4">
+            <img alt="" class="img-fluid rounded" src="https://www.bootdey.com/image/380x380/00FFFF/000000"
+                 style="width: 100px; height: 100px;">
+          </div>
+        </td>
+        <td>
+          <div>
+            <h5 class="font-size-18"><a class="text-dark" href="ecommerce-product-detail.html">Waterproof
+              Mobile Phone</a></h5>
+            <p class="text-muted mb-0 mt-2 pt-2">
+              <i class="bx bxs-star text-warning"></i>
+              <i class="bx bxs-star text-warning"></i>
+              <i class="bx bxs-star text-warning"></i>
+              <i class="bx bxs-star text-warning"></i>
+              <i class="bx bxs-star-half text-warning"></i>
+            </p>
+          </div>
+        </td>
+        <td>
+          <ul class="list-unstyled ps-0 mb-0">
+            <li><p class="text-muted mb-1 text-truncate"><i
+              class="mdi mdi-circle-medium align-middle text-primary me-1"></i> 12MP TrueDepth front
+              camera </p></li>
+            <li><p class="text-muted mb-1 text-truncate"><i
+              class="mdi mdi-circle-medium align-middle text-primary me-1"></i> Battery life: Up to 22
+              hours of video playback</p></li>
+            <li><p class="text-muted mb-0 text-truncate"><i
+              class="mdi mdi-circle-medium align-middle text-primary me-1"></i> 5G and Gigabit LTE</p>
+            </li>
+          </ul>
+        </td>
+        <td>
+          <h3>Category</h3>
+        </td>
+        <td style="width: 220px;">
+          <h3 class="mb-0 font-size-20"><span class="text-muted me-2"><del
+            class="font-size-16 fw-normal">$500</del></span><b>$450</b>
+          </h3>
+        </td>
+        <td style="width: 200px;">
+          <!-- View Button -->
+          <button class="btn view-button" data-bs-target="#viewProductModal" data-bs-toggle="modal">
+            <i class="bi bi-eye" style="color: #007bff;"></i>
+          </button>
+
+          <!-- Edit Button -->
+          <button class="btn edit-button" data-bs-target="#editProductModal" data-bs-toggle="modal">
+            <i class="bi bi-pencil"></i>
+          </button>
+
+          <!-- Delete Button -->
+          <button class="btn delete-button" data-bs-target="#deleteProductModal" data-bs-toggle="modal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Modal for adding a new product -->
+<div aria-hidden="true" aria-labelledby="addProductModalLabel" class="modal fade" id="addProductModal" role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add form fields for adding a new product here -->
+        <!-- For example, you can add input fields for name, price, description, image, etc. -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+        <button class="btn btn-primary" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for adding a new product -->
+<div aria-hidden="true" aria-labelledby="addProductModalLabel" class="modal fade" id="addProductModal" role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add form fields for adding a new product here -->
+        <!-- For example, you can add input fields for name, price, description, image, etc. -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+        <button class="btn btn-primary" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for viewing a product -->
+<!-- Modal for viewing a product -->
+<div aria-hidden="true" aria-labelledby="viewProductModalLabel" class="modal fade large-modal" id="viewProductModal"
+     role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewProductModalLabel">View Product</h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for editing a product -->
+<div aria-hidden="true" aria-labelledby="editProductModalLabel" class="modal fade" id="editProductModal" role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add form fields for editing the product here -->
+        <!-- You can include input fields to edit product name, price, description, image, etc. -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+        <button class="btn btn-primary" type="button">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for deleting a product -->
+<div aria-hidden="true" aria-labelledby="deleteProductModalLabel" class="modal fade" id="deleteProductModal"
+     role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteProductModalLabel">Delete Product</h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Show confirmation message for deleting the product -->
+        <p>Are you sure you want to delete this product?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+        <button class="btn btn-danger" type="button">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>

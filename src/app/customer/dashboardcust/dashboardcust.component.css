@@ -464,3 +464,11 @@ h6 {
     transform: rotate(360deg);
   }
 }
+/* Style for the container */
+.containerr {
+  padding: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

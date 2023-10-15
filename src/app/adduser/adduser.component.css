@@ -1,10 +1,143 @@
+/* Style for the container */
+.containerr {
+  padding: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.profile .profile-edit label {
-    font-weight: 600;
-    color: rgba(1, 41, 112, 0.6);
-  }
-  
-  .profile .profile-edit img {
-    max-width: 120px;
-  }
-  
+/* Style for the table header */
+thead th {
+  background-color: #7F8CFFFF;
+  color: #333; /* Text color for header */
+  font-weight: bold;
+  border: 1px solid #7F8CFFFF;
+  padding: 15px; /* Increase the padding for a more professional look */
+  text-align: center; /* Center align the header text */
+  text-transform: uppercase; /* Uppercase header text */
+}
+
+/* Hover effect for table header */
+thead th:hover {
+  background-color: #6C79C3FF;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Style for alternating rows */
+tbody tr:nth-child(even) {
+  background-color: #ECECEC;
+}
+
+/* Style for checkboxes */
+.form-check-input {
+  margin-top: 8px;
+}
+
+/* Style for action buttons */
+.edit-button, .delete-button {
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase button text */
+}
+
+/* Customize edit button */
+.edit-button {
+  background-color: #FFDB58FF; /* Yellow */
+  color: #333;
+  border: 1px solid #FFDB58FF; /* Add a border to the edit button */
+  transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+/* Hover effect for edit button */
+.edit-button:hover {
+  background-color: #FFBF25FF;
+}
+
+/* Customize delete button */
+.delete-button {
+  background-color: #FF5F56FF; /* Red */
+  color: #FFFFFF; /* Text color for delete button */
+  border: 1px solid #FF5F56FF; /* Add a border to the delete button */
+  transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+/* Hover effect for delete button */
+.delete-button:hover {
+  background-color: #E6342FFF;
+}
+
+/* Additional Hover Effect for Edit and Delete Buttons */
+.edit-button:hover, .delete-button:hover {
+  transform: scale(1.05);
+}
+
+/* styles.css */
+
+/* Form input styles */
+.form-control {
+  background-color: #F0F0F0;
+  color: #333;
+  border: 1px solid #7F8CFFFF;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Add a box shadow and border color change when focused */
+.form-control:focus {
+  border-color: #007bff; /* Blue color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue box shadow on focus */
+}
+
+/* Add a subtle hover effect */
+.form-control:hover {
+  border-color: #6C79C3FF; /* Slightly darker border on hover */
+}
+
+/* Add a red border and background color for invalid inputs */
+.form-control:invalid {
+  border-color: #FF5F56FF; /* Red border for invalid inputs */
+  background-color: #F8D7DA; /* Red background color for invalid inputs */
+}
+
+/* Modal styles */
+.modal-title {
+  color: #7F8CFFFF; /* Custom color for modal title */
+}
+
+/* Button styles in modal */
+.modal-footer .btn {
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Customize Save button in modal */
+.modal-footer .btn.btn-primary {
+  background-color: #007bff; /* Blue for Save button */
+  color: #FFFFFF;
+  border: 1px solid #007bff;
+}
+
+/* Hover effect for Save button in modal */
+.modal-footer .btn.btn-primary:hover {
+  background-color: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Customize Close button in modal */
+.modal-footer .btn.btn-secondary {
+  background-color: #6C79C3FF; /* Light blue for Close button */
+  color: #333;
+  border: 1px solid #6C79C3FF;
+}
+
+/* Hover effect for Close button in modal */
+.modal-footer .btn.btn-secondary:hover {
+  background-color: #5a68bd; /* Slightly darker light blue on hover */
+}

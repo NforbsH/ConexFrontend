@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Products} from "../model/products.model";
 
 @Component({
   selector: 'app-addproduct',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./addproduct.component.css']
 })
 export class AddproductComponent {
+  products = new Products();
 
+
+  saveProduct(){
+
+  }
+  saveEditedProduct(){
+
+  }
 }
