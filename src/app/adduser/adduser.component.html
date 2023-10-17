@@ -1,4 +1,20 @@
 <div class="row align-items-center">
+  <div *ngIf="successAlert" class="alert alert-success d-flex align-items-center" role="alert">
+    <svg aria-label="Success:" class="bi flex-shrink-0 me-2" height="24" role="img" width="24">
+      <use xlink:href="#check-circle-fill"/>
+    </svg>
+    <div>
+      {{successAlertMessage}}
+    </div>
+  </div>
+  <div *ngIf="errorAlert" class="alert alert-danger d-flex align-items-center" role="alert">
+    <svg aria-label="Danger:" class="bi flex-shrink-0 me-2" height="24" role="img" width="24">
+      <use xlink:href="#exclamation-triangle-fill"/>
+    </svg>
+    <div>
+      {{errorAlertMessage}}
+    </div>
+  </div>
   <div class="col-md-6">
     <div class="mb-3"></div>
   </div>
@@ -15,81 +31,45 @@
       <table class="table table-bordered table-striped">
         <thead>
         <tr>
-          <th scope="col">
-            <div class="form-check">
-              <input class="form-check-input" id="contactUserCheck" type="checkbox">
-              <label class="form-check-label" for="contactUserCheck"></label>
-            </div>
-          </th>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Password</th>
-          <th scope="col">Created At</th>
-          <th scope="col">Updated At</th>
           <th scope="col">Role</th>
           <th scope="col" style="width: 200px;">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>
-            <div class="form-check">
-              <input class="form-check-input" id="contactUserCheck" type="checkbox">
-              <label class="form-check-label" for="contactUserCheck"></label>
-            </div>
-          </td>
-          <td>1</td>
-          <td>John Doe</td>
-          <td>johndoe@example.com</td>
-          <td>Password</td>
-          <td>2023-10-15</td>
-          <td>2023-10-15</td>
-          <td>Admin</td>
+        <tr *ngFor="let user of users ">
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.role}}</td>
           <td style="width: 200px;">
+            <!-- View Button -->
+            <button (click)="viewUserF(user)" class="btn view-button" data-bs-target="#viewUserDetails"
+                    data-bs-toggle="modal">
+              <i class="bi bi-eye"></i>
+            </button>
+
             <!-- Edit Button -->
-            <button class="btn edit-button" data-bs-target="#editUserModal" data-bs-toggle="modal" title="Edit">
+            <button (click)="EditedUser(user)" class="btn edit-button" data-bs-target="#editProductModal"
+                    data-bs-toggle="modal">
               <i class="bi bi-pencil"></i>
             </button>
 
             <!-- Delete Button -->
-            <button class="btn delete-button" data-bs-toggle="tooltip" title="Delete">
+            <button (click)="delete(user)" class="btn delete-button" data-bs-target="#deleteProductModal"
+                    data-bs-toggle="modal">
               <i class="bi bi-trash"></i>
             </button>
           </td>
         </tr>
-        <tr>
-          <td>
-            <div class="form-check">
-              <input class="form-check-input" id="contactUserCheck" type="checkbox">
-              <label class="form-check-label" for="contactUserCheck"></label>
-            </div>
-          </td>
-          <td>1</td>
-          <td>John Doe</td>
-          <td>johndoe@example.com</td>
-          <td>Password</td>
-          <td>2023-10-15</td>
-          <td>2023-10-15</td>
-          <td>Admin</td>
-          <td style="width: 200px;">
-            <!-- Edit Button -->
-            <button class="btn edit-button" data-bs-target="#editUserModal" data-bs-toggle="modal" title="Edit">
-              <i class="bi bi-pencil"></i>
-            </button>
-
-            <!-- Delete Button -->
-            <button class="btn delete-button" data-bs-toggle="tooltip" title="Delete">
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-        </tr>
-        <!-- Add more table rows here as needed -->
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
 
 <!-- Modal for adding a new user -->
 <div aria-hidden="true" aria-labelledby="addUserModalLabel" class="modal fade" id="addUserModal" tabindex="-1">
@@ -103,15 +83,31 @@
       <div class="modal-body">
         <!-- Add form fields for user information here -->
         <form #userForm="ngForm">
+
+          <div class="form-group">
+            <label for="userEmail" style="color: #7F8CFFFF;">Email</label>
+            <input [(ngModel)]="newUser.email" class="form-control" id="userEmail" name="userEmail"
+                   placeholder="Enter Email" required type="email">
+          </div>
+
           <div class="form-group">
             <label for="userName" style="color: #7F8CFFFF;">Name</label>
             <input [(ngModel)]="newUser.username" class="form-control" id="userName" name="userName"
                    placeholder="Enter Name" required type="text">
           </div>
           <div class="form-group">
-            <label for="userEmail" style="color: #7F8CFFFF;">Email</label>
-            <input [(ngModel)]="newUser.email" class="form-control" id="userEmail" name="userEmail"
-                   placeholder="Enter Email" required type="email">
+            <label for="password" style="color: #7F8CFFFF;">Password</label>
+            <input #passwordField="ngModel" [(ngModel)]="newUser.password" class="form-control form-control-lg"
+                   id="password" name="password" placeholder="Enter your password" required type="password">
+          </div>
+
+          <div class="form-group">
+            <label for="password" style="color: #7F8CFFFF;">Role</label>
+            <select [(ngModel)]="newUser.role" aria-label="Default select example" class="form-select" name="role">
+              <option style="color: #7F8CFFFF;" value="admin">Admin</option>
+              <option style="color: #7F8CFFFF;" value="customer">Customer</option>
+              <option style="color: #7F8CFFFF;" value="deliveryman">Deliveryman</option>
+            </select>
           </div>
           <!-- Add more input fields for other user details as needed -->
         </form>
@@ -119,6 +115,99 @@
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
         <button (click)="saveUser()" [disabled]="!userForm.valid" class="btn btn-primary" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="viewUserDetails" class="modal fade " id="viewUserDetails"
+     role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewProductModalLabel">View User</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-2 col-md-3 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  {{viewUser.username}}
+                  <div class="mt-3">
+                    <h4>{{viewUser.email}}</h4>
+                    <p class="text-secondary mb-1">{{viewUser.role}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-4 col-sm-4">
+            <div *ngFor="let card of viewUser.Carts" class="card">
+              <div class="card-body">
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Card Id Name</h3>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input class="form-control" disabled readonly type="text" value="{{card.id}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Date Created</h3>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input class="form-control" disabled readonly type="text" value="{{card.created_at}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Product Description</h3>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input class="form-control" disabled readonly type="text" value="{{card.ProductId}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-4">
+            <div *ngFor="let customerService of viewUser.CustomerServices" class="card">
+              <div class="card-body">
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Customer Service Id</h3>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input class="form-control" disabled readonly type="text" value="{{customerService.id}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Date Created</h3>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input class="form-control" disabled readonly type="text" value="{{customerService.created_at}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Customer Service Status</h3>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input class="form-control" disabled readonly type="text" value="{{customerService.status}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
       </div>
     </div>
   </div>

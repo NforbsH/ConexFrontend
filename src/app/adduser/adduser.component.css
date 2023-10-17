@@ -141,3 +141,6 @@ tbody tr:nth-child(even) {
 .modal-footer .btn.btn-secondary:hover {
   background-color: #5a68bd; /* Slightly darker light blue on hover */
 }
+.custom-modal-lg {
+  max-width: 100%; /* Adjust the value to control the width as needed */
+}

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Product} from "../model/products.model";
-import {Category} from "../model/category.model";
 import {Users} from "../model/user.model";
+import {Category} from "../model/category.model";
+import {Product} from "../model/products.model";
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,22 @@ export class ApiService {
 
   baseURL: string = 'http://192.168.100.11:8000'
 
+  // optionHeader = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Accept': 'application/json',
+  //     'Access-Control-Allow-Headers': 'Content-Type',
+  //     Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+  //   }
+  // };
+
   optionHeader = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Authorization': `Bearer ${this.get('token')}`
+      Authorization: "Bearer " + window.localStorage.getItem('token'),
     })
-  };
+
+  }
 
   constructor(private http: HttpClient) {
   }
@@ -35,7 +43,7 @@ export class ApiService {
   }
 
   set(key: string, value: any): void {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, value);
   }
 
   get<T>(key: string): T | null {
@@ -100,6 +108,6 @@ export class ApiService {
   }
 
   public deleteProduct(id: number) {
-    return this.http.delete<Product>(`${this.baseURL}/api/c/deleteProduct/${id}`, this.optionHeader)
+    return this.http.delete<Product>(`${this.baseURL}/api/p/deleteProduct/${id}`, this.optionHeader)
   }
 }

@@ -39,10 +39,10 @@ export class LoginComponent {
       }))
       .subscribe({
           next: (response) => {
-            console.log(response);
             this.dangerAlert = false;
             this.router.navigate(['/dashboardcust'])
             this.apiservice.set('token', response.token);
+            this.apiservice.set('user', this.loginUser);
           }
         }
       )
