@@ -1,110 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Signup Form</title>
-</head>
 <body>
-  <div class="signup-form">
-    <h1>CONEX</h1>
-    <h2>Sign Up</h2>
-    <form>
-      <div class="form-group">
-        <label for="firstname">First Name</label>
-        <input type="text" class="form-control" id="firstname" placeholder="Enter your first name" required>
-      </div>
-      <div class="form-group">
-        <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" id="lastname" placeholder="Enter your last name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-      </div>
-      <div class="form-group">
-        <label for="repeat-password">Repeat Password</label>
-        <input type="password" class="form-control" id="repeat-password" placeholder="Repeat your password" required>
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="agree-checkbox" required>
-        <label class="form-check-label" for="agree-checkbox">Do you agree to all the <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">terms and conditions</a> of the company?</label>
-      </div>
-      <button type="submit" class="btn btn-primary" routerLink="/login">Sign Up</button>
-    </form>
-   <!-- <div class="new"> <button type="menu" class="btn btn-secondary" routerLink="/login">Login</button></div> -->
+<div *ngIf="dangerAlert" class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+  <button (click)="setTrue()" aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+  <svg aria-label="Danger:" class="bi flex-shrink-0 me-2" height="24" role="img" width="24">
+    <use xlink:href="#exclamation-triangle-fill"/>
+  </svg>
+  <div>
+    {{dangerMessage}}
   </div>
+</div>
 
-  <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">FOKOU TERMS AND CONDITIONS</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-        <div class="container">
-          <h1>Terms and Conditions</h1>
-          <h2>Laws and Ethics</h2>
-          <p>By using our company's resources and information online, you agree to abide by the following laws and ethics:</p>
-          <ul>
-            <li>Respect all applicable laws and regulations regarding the use of computer systems and networks.</li>
-            <li>Do not engage in any illegal activities or actions that violate the rights of others.</li>
-            <li>Protect the confidentiality and integrity of company data and information.</li>
-            <li>Use company resources responsibly and for authorized purposes only.</li>
-          </ul>
-      
-          <h2>Ordering Products and Services</h2>
-          <p>When ordering products and services from Fokou, the following rules apply:</p>
-          <ul>
-            <li>All orders are subject to availability.</li>
-            <li>Prices are subject to change without prior notice.</li>
-            <li>Payment must be made in full before the order is processed.</li>
-            <li>We accept payment through MTN Mobile Money, Orange Money, and bank accounts.</li>
-          </ul>
-      
-          <h3>Payment Details</h3>
-          <p>Please find below the payment details for each payment method:</p>
-      
-          <h4>MTN Mobile Money</h4>
-          <ul>
-            <li>Dial *126# on your mobile phone.</li>
-            <li>Select "Send Money".</li>
-            <li>Enter the Fokou Mobile Money account number: XXXXXXXX.</li>
-            <li>Enter the amount to be paid.</li>
-            <li>Confirm the transaction by entering your Mobile Money PIN.</li>
-          </ul>
-      
-          <h4>Orange Money</h4>
-          <ul>
-            <li>Dial *150*4# on your mobile phone.</li>
-            <li>Select "Transfer Money".</li>
-            <li>Enter the Fokou Orange Money account number: XXXXXXXX.</li>
-            <li>Enter the amount to be paid.</li>
-            <li>Confirm the transaction by entering your Orange Money PIN.</li>
-          </ul>
-      
-          <h4>Bank Account</h4>
-          <ul>
-            <li>Bank Name: AFRILAND FIRST BANK</li>
-            <li>Account Number: XXXXXXXX</li>
-            <li>Account Name: FOKOU...</li>
-            <li>Please include your order number as the payment reference.</li>
-          </ul>
-      
+<div class="container h-100">
+  <div class="row h-100">
+    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+      <div class="d-table-cell align-middle">
+        <div class="text-center mt-4">
+          <h1 class="h2">Welcome to CONEX</h1>
+          <p class="lead">Create an account to get started</p>
         </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <div class="card">
+          <div class="card-body">
+            <div class="m-sm-4">
+              <div class="text-center">
+                <img alt="Andrew Jones" class="img-fluid rounded-circle" height="132"
+                     src="https://bootdey.com/img/Content/avatar/avatar6.png" width="132">
+              </div>
+              <form #registrationForm="ngForm" (ngSubmit)="registerUser()">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input #emailField="ngModel" [(ngModel)]="user.email" class="form-control form-control-lg"
+                         id="email" name="email" placeholder="Enter your email" required type="email">
+                </div>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input #usernameField="ngModel" [(ngModel)]="user.username" class="form-control form-control-lg"
+                         id="username" name="username" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input #passwordField="ngModel" [(ngModel)]="user.password" class="form-control form-control-lg"
+                         id="password" name="password" placeholder="Enter your password" required type="password">
+                </div>
+                <div class="custom-control custom-checkbox align-items-center">
+                  <input [(ngModel)]="agreeToTerms" class="custom-control-input" name="agree-to-terms" required
+                         type="checkbox">
+                  <label class="custom-control-label text-small">
+                    I agree to the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
+                  </label>
+                </div>
+                <div class="text-center mt-3">
+                  <button [disabled]="!registrationForm.valid" class="btn btn-lg btn-primary">Sign up</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <p class="small mb-0">Already have an account?
+            <a routerLink="/login">Sign in</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 </body>
-</html>

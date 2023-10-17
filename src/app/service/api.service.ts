@@ -17,21 +17,33 @@ export class ApiService {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
-      //'Access-Control-Allow-Origin': '*'
+      'Authorization': `Bearer ${this.get('token')}`
     })
   };
 
   constructor(private http: HttpClient) {
   }
 
-  login(email: string, password: string) {
+  login(email?: string, password?: string) {
     return this.http.post<any>(`${this.baseURL}/users/login`, {
       email, password
     }, this.optionHeader);
   }
 
+  clear(): void {
+    localStorage.clear();
+  }
 
-  register(username: string, email: string, password: string, role: string) {
+  set(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  get<T>(key: string): T | null {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
+  }
+
+  register(username?: string, email?: string, password?: string, role?: string) {
     return this.http.post<Users>(`${this.baseURL}/users/register`, {
       username, email, password, role
     }, this.optionHeader);

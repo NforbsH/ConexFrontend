@@ -1,36 +1,22 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    
-  }
-  
-  .signup-form {
-    max-width: 900px;
-    width: 500px;
-    height: 650px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color:  rgb(152, 162, 248); ;
-  }
-  
-  .signup-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .signup-form h1 {
-  font-family: "ALGERIAN", sans-serif;
-  font-size: 40px;
-  color: rgb(27, 5, 5);
-  /* margin-left: 100px; */
-  text-align: center;
-  ;
+  background-color: #c6ceef;
 }
 
-  .signup-form button {
-    width: 30%;
-    margin-left: 250px;
-  }
+.card {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #e5e9f2;
+  background-clip: border-box;
+  border: 1px solid #e5e9f2;
+  border-radius: .2rem;
+}

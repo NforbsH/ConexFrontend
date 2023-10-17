@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ApiService} from './../service/api.service';
 import {Router} from '@angular/router';
 import {Users} from "../model/user.model";
+import {catchError, throwError} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,14 @@ export class LoginComponent {
   respondMessage: any = "";
   mAlert: boolean = false;
 
+  dangerAlert: boolean = false;
+  dangerMessage: string = '';
   loginUser = new Users();
-  rememberMe : any
-  constructor(private apiservice:ApiService, private router:Router) { }
+  rememberMe: any
+  agreeToTerms: boolean = false;
+
+  constructor(private apiservice: ApiService, private router: Router) {
+  }
 
 
   /* get email() {
@@ -25,23 +31,25 @@ export class LoginComponent {
   } */
 
   loginbutton() {
-    console.log(this.loginUser, this.rememberMe);
-    // console.log("This are the credentials ====== ",this.profileForm.value);
-    // this.apiservice.login(this.profileForm.value)
-    // .subscribe((data: any) => {
-    //   console.log(data)
-    //   this.router.navigate(["/dashboard-admin"]);
-    // },
-    // (error)=>{
-    //   console.log(error.error)
-    //   if(error.status==0){
-    //     this.respondMessage = "Cross Origin: Header Absent";
-    //   }else{
-    //     this.respondMessage = error.error.error;
-    //   }
-    //   this.mAlert = true;
-    // });
+    this.apiservice.login(this.loginUser.email, this.loginUser.password)
+      .pipe(catchError(error => {
+        this.dangerMessage = error.error.error
+        this.dangerAlert = true;
+        return throwError(error)
+      }))
+      .subscribe({
+          next: (response) => {
+            console.log(response);
+            this.dangerAlert = false;
+            this.router.navigate(['/dashboardcust'])
+            this.apiservice.set('token', response.token);
+          }
+        }
+      )
+  }
 
+  setTrue() {
+    this.dangerAlert = false;
   }
 
 }
