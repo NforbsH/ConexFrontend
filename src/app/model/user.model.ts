@@ -1,11 +1,18 @@
+// export interface IUsers {
+//   id?: number;
+//   name?: string;
+//   email?: string;
+//   password?: string;
+//   created_at?: Date;
+//   updated_at?: Date;
+//   role?: IRole[];
+// }
 export interface IUsers {
   id?: number;
-  name?: string;
+  username?: string;
   email?: string;
   password?: string;
-  created_at?: Date;
-  updated_at?: Date;
-  role?: IRole[];
+  role?: string;
 }
 
 export interface IRole {
@@ -14,13 +21,11 @@ export interface IRole {
 }
 
 export class Users implements IUsers {
-  created_at?: Date;
   email?: string;
   id?: number;
-  name?: string;
   password?: string;
-  role?: IRole[];
-  updated_at?: Date;
+  role: string ='customer';
+  username?: string;
 
   constructor(init?: Partial<Users>) {
     Object.assign(this, init);

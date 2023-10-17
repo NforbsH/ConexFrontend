@@ -25,6 +25,7 @@ import {CartComponent} from './cart/cart.component';
 import {DeliveryagentDashboardComponent} from "./deliveryagent-dashboard/deliveryagent-dashboard.component";
 import {ReservationComponent} from "./reservation/reservation.component";
 import {OrderComponent} from "./order/order.component";
+import {CategoryComponent} from "./category/category.component";
 
 const routes: Routes = [
   {
@@ -60,17 +61,13 @@ const routes: Routes = [
       {path: 'deliveryAgent', component: DeliveryagentDashboardComponent},
       // {path: 'editeProdute', component: EditproductComponent},
       {path : 'order', component: OrderComponent},
+      {path : 'category', component: CategoryComponent},
       {path: 'map', component: MapComponent},
       {path: 'messaging', component: MessagingComponent},
       {path: 'profile', component: ProfileComponent},
 
     ]
   },
-  // 1) The catalogue
-// 2) Invoice management
-// 3) Reservation Management
-// 4) Product management
-// 5) Order management
   {
     path: 'homepage',
     component: HomepageComponent

@@ -1,17 +1,19 @@
-export interface IProducts {
+export interface IProduct {
   id?: number;
   name?: string;
-  price?: string;
-  describtion?: string;
+  price: number;
+  description?: string;
+  categoryId?: number;
 }
 
-export class Products implements IProducts {
-  describtion?: string;
-  id?: number;
+export class Product implements IProduct {
+  categoryId?: number;
+  description?: string;
+  id: number = 1;
   name?: string;
-  price?: string;
+  price: number = 1000;
 
-  constructor(init?: Partial<Products>) {
+  constructor(init?: Partial<Product>) {
     Object.assign(this, init)
   }
 }

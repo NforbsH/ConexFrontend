@@ -1,0 +1,223 @@
+<div class="row align-items-center">
+  <div class="table-responsive px-3">
+    <div class="d-flex justify-content-end mb-3">
+      <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-primary" data-bs-target="#addProductModal" data-bs-toggle="modal">
+          <i class="bx bx-plus me-1"></i> Add New Category
+        </a>
+      </div>
+    </div>
+    <table class="table table-striped align-middle table-nowrap">
+      <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of category">
+        <td>
+          <div class="avatar-lg me-4">
+            {{category.image}}
+            <!--            <img alt="" class="img-fluid rounded" src="https://www.bootdey.com/image/380x380/00FFFF/000000"-->
+            <!--                 style="width: 100px; height: 100px;">-->
+          </div>
+        </td>
+        <td>
+          <div>
+            <h5 class="font-size-18"><a class="text-dark">{{category.name}}</a></h5>
+          </div>
+        </td>
+        <td>
+          <ul class="list-unstyled ps-0 mb-0">
+            <li>
+              <p class="text-muted mb-1 text-truncate"><i
+                class="mdi mdi-circle-medium align-middle text-primary me-1"></i> {{category.description}} </p></li>
+          </ul>
+        </td>
+        <td style="width: 322px;">
+            <span class="text-muted me-2">
+              {{category.description}}
+            </span>
+        </td>
+        <td style="width: 200px;">
+          <!-- View Button -->
+          <button (click)="viewCategory(category)" class="btn view-button" data-bs-target="#viewProductModal"
+                  data-bs-toggle="modal">
+            <i class="bi bi-eye"></i>
+          </button>
+
+          <!-- Edit Button -->
+          <button (click)="saveEditedCategory(category)" class="btn edit-button" data-bs-target="#editProductModal"
+                  data-bs-toggle="modal">
+            <i class="bi bi-pencil"></i>
+          </button>
+
+          <!-- Delete Button -->
+          <button (click)="delete(category)" class="btn delete-button" data-bs-target="#deleteProductModal"
+                  data-bs-toggle="modal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="addProductModalLabel" class="modal fade" id="addProductModal" role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel"
+            style="color: #7F8CFFFF; font-size: 1.5rem; text-transform: uppercase;">Add New Category</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Add form fields for product information here -->
+        <form #productForm="ngForm">
+          <div class="form-group">
+            <label for="productName" style="color: #7F8CFFFF;">Name</label>
+            <input [(ngModel)]="categoryAdd.name" class="form-control" id="productName" name="productName"
+                   placeholder="Enter Name" required type="text">
+          </div>
+          <input (change)="handleUpload($event)" accept="image/png,image/jpeg" class="form-control-file"
+                 id="resume1" style="color: #7F8CFFFF;"
+                 type="file">
+          <div class="form-group">
+            <label for="productDescription" style="color: #7F8CFFFF;">Description</label>
+            <textarea [(ngModel)]="categoryAdd.description" class="form-control" id="productDescription"
+                      name="productDescription" placeholder="Enter Description"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="saveCategory()" [disabled]="!productForm.valid" class="btn btn-primary" type="button">Save
+        </button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for viewing a product -->
+<div aria-hidden="true" aria-labelledby="viewProductModalLabel" class="modal fade large-modal" id="viewProductModal"
+     role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewProductModalLabel">View Category</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="container">
+        <div class="main-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    {{categoryView.image}}
+                    <div class="mt-3">
+                      <h4> {{categoryView.name}}</h4>
+                      <p class="text-secondary mb-1"> {{categoryView.description}}</p>
+                      <p class="text-muted font-size-sm"> {{categoryView.created_at}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div *ngFor="let product of categoryView.Products" class="card">
+                <div class="card-body">
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Product Name</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input class="form-control" disabled readonly type="text" value="{{product.name}} ">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Product Price</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input class="form-control" disabled readonly type="text" value="{{product.price}} ">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Product Description</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input class="form-control" disabled readonly type="text" value="{{product.description}} ">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="editProductModalLabel" class="modal fade" id="editProductModal" role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProductModalLabel">Edit Category</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Add form fields for editing the product here -->
+        <div class="form-group">
+          <label for="editedProductName" style="color: #7F8CFFFF;">Product Name</label>
+          <input [(ngModel)]="categoryEdite.name" class="form-control" id="editedProductName" name="editedProductName">
+        </div>
+        <div class="form-group">
+          <label for="editedProductPrice" style="color: #7F8CFFFF;">Price</label>
+          <input [(ngModel)]="categoryEdite.description" class="form-control" id="editedProductPrice"
+                 name="editedProductPrice">
+        </div>
+        <input (change)="handleUpload($event)" accept="image/png,image/jpeg" class="form-control-file"
+               id="resume1" style="color: #7F8CFFFF;"
+               type="file">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+        <button (click)="saveChanges(categoryEdite)" class="btn btn-primary" type="button">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div aria-hidden="true" aria-labelledby="deleteProductModalLabel" class="modal fade" id="deleteProductModal"-->
+<!--     role="dialog"-->
+<!--     tabindex="-1">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="deleteProductModalLabel">Delete Product</h5>-->
+<!--        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <h3 style="color: #d41d1d; font-size: 1.5rem;">Are you sure you want to-->
+<!--          delete: {{deleteProduct.name}} </h3>-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>-->
+<!--        <button (click)="deleteProductAPI(deleteProduct.id)" class="btn btn-danger" type="button">Delete</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

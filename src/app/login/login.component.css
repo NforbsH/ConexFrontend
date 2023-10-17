@@ -1,17 +1,22 @@
-.container {
-    background-color: rgb(201, 202, 207);
-    border-radius: 20px;
+body {
+  background-color: #c6ceef;
 }
 
-.card-body {
-    background-color:  rgb(152, 162, 248);
-    border-radius: 30px;
-    height: 450px;
-    width: 400px;
+.card {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
 
-h2{
-    font-family: "ALGERIAN", sans-serif;
-    font-size: 40px;
-    color: rgb(27, 5, 5);
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #e5e9f2;
+  background-clip: border-box;
+  border: 1px solid #e5e9f2;
+  border-radius: .2rem;
 }

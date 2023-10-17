@@ -8,9 +8,8 @@
       </div>
     </div>
     <table class="table table-striped align-middle table-nowrap">
-
       <tbody>
-      <tr>
+      <tr *ngFor="let product of products">
         <td>
           <div class="avatar-lg me-4">
             <img alt="" class="img-fluid rounded" src="https://www.bootdey.com/image/380x380/00FFFF/000000"
@@ -19,51 +18,40 @@
         </td>
         <td>
           <div>
-            <h5 class="font-size-18"><a class="text-dark" href="ecommerce-product-detail.html">Waterproof
-              Mobile Phone</a></h5>
-            <p class="text-muted mb-0 mt-2 pt-2">
-              <i class="bx bxs-star text-warning"></i>
-              <i class="bx bxs-star text-warning"></i>
-              <i class="bx bxs-star text-warning"></i>
-              <i class="bx bxs-star text-warning"></i>
-              <i class="bx bxs-star-half text-warning"></i>
-            </p>
+            <h5 class="font-size-18"><a class="text-dark">{{product.name}}</a></h5>
           </div>
         </td>
         <td>
           <ul class="list-unstyled ps-0 mb-0">
-            <li><p class="text-muted mb-1 text-truncate"><i
-              class="mdi mdi-circle-medium align-middle text-primary me-1"></i> 12MP TrueDepth front
-              camera </p></li>
-            <li><p class="text-muted mb-1 text-truncate"><i
-              class="mdi mdi-circle-medium align-middle text-primary me-1"></i> Battery life: Up to 22
-              hours of video playback</p></li>
-            <li><p class="text-muted mb-0 text-truncate"><i
-              class="mdi mdi-circle-medium align-middle text-primary me-1"></i> 5G and Gigabit LTE</p>
-            </li>
+            <li>
+              <p class="text-muted mb-1 text-truncate"><i
+                class="mdi mdi-circle-medium align-middle text-primary me-1"></i> {{product.description}} </p></li>
           </ul>
         </td>
         <td>
           <h3>Category</h3>
         </td>
-        <td style="width: 220px;">
+        <td style="width: 322px;">
           <h3 class="mb-0 font-size-20"><span class="text-muted me-2"><del
-            class="font-size-16 fw-normal">$500</del></span><b>$450</b>
+            class="font-size-16 fw-normal">{{product.price + 250}}  FCFA</del></span><b>{{product.price}} FCFA</b>
           </h3>
         </td>
         <td style="width: 200px;">
           <!-- View Button -->
-          <button class="btn view-button" data-bs-target="#viewProductModal" data-bs-toggle="modal">
-            <i class="bi bi-eye" style="color: #007bff;"></i>
+          <button (click)="viewProduct(product)" class="btn view-button" data-bs-target="#viewProductModal"
+                  data-bs-toggle="modal">
+            <i class="bi bi-eye"></i>
           </button>
 
           <!-- Edit Button -->
-          <button class="btn edit-button" data-bs-target="#editProductModal" data-bs-toggle="modal">
+          <button (click)="saveEditedProduct(product)" class="btn edit-button" data-bs-target="#editProductModal"
+                  data-bs-toggle="modal">
             <i class="bi bi-pencil"></i>
           </button>
 
           <!-- Delete Button -->
-          <button class="btn delete-button" data-bs-target="#deleteProductModal" data-bs-toggle="modal">
+          <button (click)="delete(product)" class="btn delete-button" data-bs-target="#deleteProductModal"
+                  data-bs-toggle="modal">
             <i class="bi bi-trash"></i>
           </button>
         </td>
@@ -72,52 +60,51 @@
     </table>
   </div>
 </div>
-<!-- Modal for adding a new product -->
 <div aria-hidden="true" aria-labelledby="addProductModalLabel" class="modal fade" id="addProductModal" role="dialog"
      tabindex="-1">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
-        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="addProductModalLabel"
+            style="color: #7F8CFFFF; font-size: 1.5rem; text-transform: uppercase;">Add New Product</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
       </div>
       <div class="modal-body">
-        <!-- Add form fields for adding a new product here -->
-        <!-- For example, you can add input fields for name, price, description, image, etc. -->
+        <!-- Add form fields for product information here -->
+        <form #productForm="ngForm">
+          <div class="form-group">
+            <label for="productName" style="color: #7F8CFFFF;">Name</label>
+            <input [(ngModel)]="product.name" class="form-control" id="productName" name="productName"
+                   placeholder="Enter Name" required type="text">
+          </div>
+          <div class="form-group">
+            <label for="productPrice" style="color: #7F8CFFFF;">Price</label>
+            <input [(ngModel)]="product.price" class="form-control" id="productPrice" name="productPrice"
+                   placeholder="Enter Price" required type="number">
+          </div>
+          <div class="form-group">
+            <label for="productDescription" style="color: #7F8CFFFF;">Description</label>
+            <textarea [(ngModel)]="product.description" class="form-control" id="productDescription"
+                      name="productDescription" placeholder="Enter Description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="productCategoryId" style="color: #7F8CFFFF;">Category</label>
+            <!-- Use ngFor to create the dropdown options -->
+            <select [(ngModel)]="product.categoryId" class="form-select" name="productCategoryId" required>
+              <option *ngFor="let cat of category" [value]="cat.id">{{cat.name}}</option>
+            </select>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
-        <button class="btn btn-primary" type="button">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal for adding a new product -->
-<div aria-hidden="true" aria-labelledby="addProductModalLabel" class="modal fade" id="addProductModal" role="dialog"
-     tabindex="-1">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
-        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-          <span aria-hidden="true">&times;</span>
+        <button (click)="saveProduct()" [disabled]="!productForm.valid" class="btn btn-primary" type="button">Save
         </button>
-      </div>
-      <div class="modal-body">
-        <!-- Add form fields for adding a new product here -->
-        <!-- For example, you can add input fields for name, price, description, image, etc. -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
-        <button class="btn btn-primary" type="button">Save</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal for viewing a product -->
 <!-- Modal for viewing a product -->
 <div aria-hidden="true" aria-labelledby="viewProductModalLabel" class="modal fade large-modal" id="viewProductModal"
      role="dialog" tabindex="-1">
@@ -139,30 +126,46 @@
   </div>
 </div>
 
-<!-- Modal for editing a product -->
 <div aria-hidden="true" aria-labelledby="editProductModalLabel" class="modal fade" id="editProductModal" role="dialog"
      tabindex="-1">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
-        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
       </div>
       <div class="modal-body">
         <!-- Add form fields for editing the product here -->
-        <!-- You can include input fields to edit product name, price, description, image, etc. -->
+        <div class="form-group">
+          <label for="editedProductName" style="color: #7F8CFFFF;">Product Name</label>
+          <input [(ngModel)]="editedProduct.name" class="form-control" id="editedProductName" name="editedProductName">
+        </div>
+        <div class="form-group">
+          <label for="editedProductPrice" style="color: #7F8CFFFF;">Price</label>
+          <input [(ngModel)]="editedProduct.price" class="form-control" id="editedProductPrice"
+                 name="editedProductPrice">
+        </div>
+        <div class="form-group">
+          <label for="editedProductDescription" style="color: #7F8CFFFF;">Description</label>
+          <textarea [(ngModel)]="editedProduct.description" class="form-control" id="editedProductDescription"
+                    name="editedProductDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productCategoryId" style="color: #7F8CFFFF;">Category</label>
+          <!-- Use ngFor to create the dropdown options -->
+          <select [(ngModel)]="editedProduct.categoryId" class="form-select" name="productCategoryId" required>
+            <option *ngFor="let cat of category" [value]="editedProduct.categoryId">{{cat.name}}</option>
+          </select>
+        </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
-        <button class="btn btn-primary" type="button">Save Changes</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+        <button (click)="saveChanges(editedProduct)" class="btn btn-primary" type="button">Save Changes</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal for deleting a product -->
 <div aria-hidden="true" aria-labelledby="deleteProductModalLabel" class="modal fade" id="deleteProductModal"
      role="dialog"
      tabindex="-1">
@@ -170,17 +173,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteProductModalLabel">Delete Product</h5>
-        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
       </div>
       <div class="modal-body">
-        <!-- Show confirmation message for deleting the product -->
-        <p>Are you sure you want to delete this product?</p>
+        <h3 style="color: #d41d1d; font-size: 1.5rem;">Are you sure you want to
+          delete: {{deleteProduct.name}} </h3>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
-        <button class="btn btn-danger" type="button">Delete</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+        <button (click)="deleteProductAPI(deleteProduct.id)" class="btn btn-danger" type="button">Delete</button>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IUsers, Users} from "../model/user.model";
+import {Users} from "../model/user.model";
 
 @Component({
   selector: 'app-adduser',
@@ -9,19 +9,7 @@ import {IUsers, Users} from "../model/user.model";
 export class AdduserComponent {
   newUser = new Users();
   selectedUser = new Users();
-  users?: IUsers[] = [
-    {
-      id: 1,
-      email: "1@gmail.com",
-      name: 'string',
-      created_at: new Date(),
-      updated_at: new Date(),
-      password: 'qweq',
-      role: [],
-    },
-    {id: 2}
-
-  ]
+  users?: Users[] = []
 
   saveUser() {
     console.log(this.newUser);

@@ -33,6 +33,7 @@ import {AdduserComponent} from './adduser/adduser.component';
 import {CartComponent} from './cart/cart.component';
 import {ReservationComponent} from './reservation/reservation.component';
 import {OrderComponent} from './order/order.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {OrderComponent} from './order/order.component';
     AdduserComponent,
     CartComponent,
     ReservationComponent,
-    OrderComponent
+    OrderComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
